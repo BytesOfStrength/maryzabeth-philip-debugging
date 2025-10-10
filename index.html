@@ -10,14 +10,22 @@
   <body>
     <main>
       <h1>Guessing Game</h1>
-      <p>
+      <!-- I commented out Game rules and moved to inside Label -->
+      <!-- <p>
         I'm thinking of a number from 1 to 99! Can you guess it in 5 tries or
         less?
-      </p>
+      </p> -->
+      <!-- input field for user to guess -->
+       <!-- I wrapped input and button inside a form so I could give a message if numbers out of expected range -->
       <div>
-        <input type="number" id="guess" min="1" max="99" />
-        <button id="submit">Submit Guess</button>
+        <form action ="/submit-guess" method="post" onsubmit ="return checkGuess()">
+          <label for="guess">I'm thinking of a number from 1 to 99! Can you guess it in 5 tries or less?</label>
+          <input type="number" id="guess" min="1" max="99" />
+          <button id="submit">Submit Guess</button>
+        </form>
+        
       </div>
+      <!-- messages to display to user number of guesses left and how close user's guess is to target value -->
       <div>
         <p class="message" id="number-of-guesses"></p>
         <p class="message" id="too-high">You guessed too high. Try again.</p>
@@ -30,6 +38,7 @@
           Would you like to play again?
         </p>
       </div>
+      <!-- reset button to reset input area -->
       <button id="reset">Reset</button>
     </main>
     <script src="index.js"></script>
